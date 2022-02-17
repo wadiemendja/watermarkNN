@@ -1,0 +1,12 @@
+{
+  "name": "furniture-management-system",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "devDependencies": {
+    "electron": "^9.1.0",
+    "electron-packager": "^15.0.0"
+  }
+}
