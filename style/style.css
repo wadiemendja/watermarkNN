@@ -1,8 +1,25 @@
-#logo{
+#logo {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     border: gray solid 3px;
 }
 
-header { margin-top: 5px;}
+header {
+    margin-top: 5px;
+}
+
+.container {
+    padding: 20px 10px 10px 10px;
+    text-align: center;
+}
+
+.container #selectedImage {
+    padding: 10px;
+}
+
+#selectedImage img {
+    border: 2px lightgray solid;
+    border-radius: 5px;
+    max-width: 600px;
+}
