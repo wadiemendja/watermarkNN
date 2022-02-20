@@ -1,27 +1,38 @@
 const fileInput = document.getElementById('formFileLg');
 const selectedImgDiv = document.getElementById('selectedImage');
 const animation = document.querySelector('.animation');
+let selectedImageSrc = undefined;
+const watermarkImageBtn = document.getElementById('watermarkImage');
+const watermarkTextAria = document.getElementById('watermarkText');
+const watermarkedImage = document.getElementById('watermarkedImage');
+watermarkTextAria.value = "Name : Wadie Mendja";
+watermarkImageBtn.style.display = "none";
 
 // previewing image
 fileInput.addEventListener('change', (event) => {
   const file = event.target.files[0];
   if (file) {
-    const imagePath = URL.createObjectURL(file);
-    const watermarkText = "Hello this is a watermark";
-    run(imagePath, watermarkText);
+    selectedImageSrc = URL.createObjectURL(file);
+    selectedImgDiv.innerHTML = `<img src="${selectedImageSrc}">`;
+    watermarkImageBtn.style.display = "";
     animation.innerHTML = "";
   }
+});
+
+// watermark image button click event
+watermarkImageBtn.addEventListener('click', () => {
+  run(selectedImageSrc, watermarkTextAria.value);
 });
 
 /**
  *Picture path to canvas
  *@ param {image URL} URL
  */
- async function imgToCanvas(url) {
+async function imgToCanvas(url) {
   //Create img element
   const img = document.createElement("img");
   img.src = url;
-  img.setAttribute ("crossorigin", "anonymous"); // prevent failed to execute 'todataurl' on 'htmlcanvas element' caused by cross domain: tainted canvas may not be exported
+  img.setAttribute("crossorigin", "anonymous"); // prevent failed to execute 'todataurl' on 'htmlcanvas element' caused by cross domain: tainted canvas may not be exported
   await new Promise((resolve) => (img.onload = resolve));
   //Create the canvas DOM element and set its width and height to be the same as the picture
   const canvas = document.createElement("canvas");
@@ -67,6 +78,6 @@ async function run(imgUrl, text) {
   //3. Convert canvas to img
   const img = convasToImg(canvas);
   //View effects
-  selectedImgDiv.appendChild(img);
+  watermarkedImage.appendChild(img);
 }
 

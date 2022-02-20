@@ -18,7 +18,7 @@ header {
     padding: 10px;
 }
 
-#selectedImage img {
+#selectedImage img, #watermarkedImage img {
     border: 2px lightgray solid;
     border-radius: 5px;
     max-width: 600px;
@@ -28,4 +28,13 @@ header {
     display: block;
     margin: 0 auto;
     max-width: 400px;
+}
+
+.image-previewer {
+    column-count: 2;
+}
+
+#watermarkImage {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

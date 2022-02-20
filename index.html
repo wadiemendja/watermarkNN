@@ -21,24 +21,37 @@
       </a>
       <div>Tahri Mohammed University</div>
       <div>Image Watermarking Based On Deep Neural Network</div>
-      <div>By Wadie Mendja <a href="https://wadiemendja.web.app" target="_blank">(@wadiemendja)</a> & Zeghamri Salah</div>
+      <div>By Wadie Mendja <a href="https://wadiemendja.web.app" target="_blank">(@wadiemendja)</a> & Zeghamri Salah
+      </div>
     </center>
   </header>
+
   <div class="container">
     <div>
+      <div class="input-group">
+        <span class="input-group-text">Text Watermark</span>
+        <textarea class="form-control" aria-label="With textarea" rows="1" id="watermarkText"></textarea>
+      </div>
       <div>
         <label for="formFileLg" class="form-label" style="text-align: center;">Image File Input :</label>
         <input class="form-control form-control-lg" id="formFileLg" type="file">
       </div>
-      <div id="selectedImage"></div>
+      <div class="image-previewer">
+        <div id="selectedImage"></div>
+        <div id="watermarkedImage"></div>
+      </div>
+      <div>
+        <button type="button" class="btn btn-secondary" id="watermarkImage">Watermark Image</button>
+      </div>
     </div>
     <div>
       <div id="results"></div>
     </div>
+    <div class="animation">
+      <img src="./img/animation.gif" alt="">
+    </div>
   </div>
-  <div class="animation">
-    <img src="./img/animation.gif" alt="">
-  </div>
+
   <footer></footer>
 </body>
 
