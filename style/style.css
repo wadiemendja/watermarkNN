@@ -21,7 +21,7 @@ header {
 #selectedImage img, #watermarkedImage img {
     border: 2px lightgray solid;
     border-radius: 5px;
-    max-width: 600px;
+    width: 100%;
 }
 
 .animation img {
@@ -32,6 +32,9 @@ header {
 
 .image-previewer {
     column-count: 2;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 
 #watermarkImage {
