@@ -32,15 +32,15 @@ watermarkImageBtn.addEventListener('click', async (event) => {
   await runWatermarking(selectedImageSrc, watermarkedImage, watermarkTextAria.value);
   thisBtn.disabled = false;
   // Initialize the Image Classifier method with MobileNet
-  const classifier = ml5.imageClassifier('MobileNet', modelLoaded);
+  // const classifier = ml5.imageClassifier('MobileNet', modelLoaded);
 
-  // When the model is loaded
-  function modelLoaded() {
-    console.log('Model Loaded!');
-  }
+  // // When the model is loaded
+  // function modelLoaded() {
+  //   console.log('Model Loaded!');
+  // }
 
-  // Make a prediction with a selected image
-  classifier.classify(selectedImgDiv.querySelector('img'), (err, results) => {
-    console.log(results);
-  });
+  // // Make a prediction with a selected image
+  // classifier.classify(selectedImgDiv.querySelector('img'), (err, results) => {
+  //   console.log(results);
+  // });
 });
