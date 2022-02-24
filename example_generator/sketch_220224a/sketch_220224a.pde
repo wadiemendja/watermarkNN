@@ -1,13 +1,11 @@
 void setup () {
-  size(200, 200);
+  size(128, 64);
 }
 
 void draw () {
-  background(255);
+  background(0);
   textSize(10);
-  text("word", 40, 120); 
-  fill(0, 408, 612);
-  text("word", 40, 240);
-  fill(0, 408, 612, 204);
-  text("word", 40, 360);
+  text("Wadie Mendja", 5, 34); 
+  fill(255, 165, 0, 100);
+  saveFrame("data/example#.png");
 }
