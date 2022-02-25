@@ -7,7 +7,7 @@ let selectedImageSrc = undefined;
 const watermarkImageBtn = document.getElementById('watermarkImage');
 const watermarkTextAria = document.getElementById('watermarkText');
 const watermarkedImage = document.getElementById('watermarkedImage');
-watermarkTextAria.value = "Name : Wadie Mendja";
+watermarkTextAria.value = "Wadie Mendja";
 watermarkImageBtn.style.display = "none";
 
 // previewing image
@@ -31,6 +31,7 @@ watermarkImageBtn.addEventListener('click', async (event) => {
   thisBtn.disabled = true;
   await runWatermarking(selectedImageSrc, watermarkedImage, watermarkTextAria.value);
   thisBtn.disabled = false;
+  console.log(watermarkTextAria.value)
   // Initialize the Image Classifier method with MobileNet
   // const classifier = ml5.imageClassifier('MobileNet', modelLoaded);
 

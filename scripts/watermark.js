@@ -24,10 +24,15 @@ async function imgToCanvas(url) {
  */
 function addWatermark(canvas, text) {
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "rgba(255, 165, 0, 0.1)";
-    ctx.font = "10px monospace";
+    ctx.fillStyle = "rgba(255, 165, 0, 1)";
+    ctx.font = "10px courier";
     ctx.textBaseline = "middle";
-    ctx.fillText(text, 50, 200);
+    const a = 2;
+    const b = 10;
+    const lineheight = 15;
+    const lines = text.split('\n');
+    for (var j = 0; j < lines.length; j++)
+        ctx.fillText(lines[j], a, b + (j * lineheight));
     return canvas;
 }
 

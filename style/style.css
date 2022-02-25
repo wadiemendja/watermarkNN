@@ -21,6 +21,7 @@ header {
 #selectedImage img, #watermarkedImage img {
     border: 2px lightgray solid;
     border-radius: 5px;
+    max-width: 600px;
     width: 100%;
 }
 
