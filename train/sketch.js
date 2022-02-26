@@ -1,16 +1,17 @@
 let wadieExample = [];
 let dahamExamples = [];
+let zeghamriExamples = [];
 let watermarkClassifier;
 
 function preload() {
-   for (let i = 0; i < 255; i++) {
+   for (let i = 0; i < 10; i++) {
       wadieExample[i] = loadImage(`../example_generator/sketch_220224a/data/wadiemendja${i}.png`);
       dahamExamples[i] = loadImage(`../example_generator/sketch_220224a/data/dahama${i}.png`);
+      zeghamriExamples[i] = loadImage(`../example_generator/sketch_220224a/data/zeghamris${i}.png`);
    }
 }
 
 function setup() {
-   createCanvas(400, 400);
    watermarkClassifier = ml5.neuralNetwork({
       input: [64, 64, 4],
       task: "imageClassification",
@@ -19,6 +20,7 @@ function setup() {
    for (let i = 0; i < wadieExample.length; i++) {
       watermarkClassifier.addData({ image: wadieExample[i] }, { label: "Wadie Mendja" });
       watermarkClassifier.addData({ image: dahamExamples[i] }, { label: "Daham A" });
+      watermarkClassifier.addData({ image: zeghamriExamples[i] }, { label: "Zeghamri Salah" });
    }
    watermarkClassifier.normalizeData();
    watermarkClassifier.train({ epochs: 50 }, () => console.log("Finished training"));

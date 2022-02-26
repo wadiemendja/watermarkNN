@@ -13,10 +13,11 @@ void draw () {
   float g = randomizeColor();
   float b = randomizeColor();
   background(r,g,b); // frame background
+  // rotate(random(-0.5, 0.5));
   textSize(10); // text size px
-  text("Wadie Mendja", 2, 10); // Text position (x,y)
+  text("Zeghamri Salah", 2, 10); // Text position (x,y)
   fill(255, 165, 0, 25.5); // text color RGBA
-  saveFrame("data/example"+ counter + ".png");
+  saveFrame("data/zeghamris"+ counter + ".png");
   counter++;
   if (counter < 255) {
     draw();  
