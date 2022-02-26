@@ -4,7 +4,7 @@ let zeghamriExamples = [];
 let watermarkClassifier;
 
 function preload() {
-   for (let i = 0; i < 10; i++) {
+   for (let i = 0; i < 100; i++) {
       wadieExample[i] = loadImage(`../example_generator/sketch_220224a/data/wadiemendja${i}.png`);
       dahamExamples[i] = loadImage(`../example_generator/sketch_220224a/data/dahama${i}.png`);
       zeghamriExamples[i] = loadImage(`../example_generator/sketch_220224a/data/zeghamris${i}.png`);
@@ -13,7 +13,7 @@ function preload() {
 
 function setup() {
    watermarkClassifier = ml5.neuralNetwork({
-      input: [64, 64, 4],
+      inputs: [64, 64, 4],
       task: "imageClassification",
       debug: true
    });
