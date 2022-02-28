@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../libraries/boostrap.css">
     <script src="../libraries/p5.js"></script>
     <script src="../libraries/ml5.js"></script>
     <script src="./test.js" defer></script>
-    <title>Test</title>
+    <title>Extract Watermark</title>
 </head>
+
 <body>
+    <div class="container">
+        <div>
+            <label for="formFileLg" class="form-label" style="text-align: center;">Image File Input :</label>
+            <input class="form-control form-control-lg" id="formFileLg" type="file">
+        </div>
+        <button type="button" class="btn btn-secondary" id="extractWatermarkBtn">Extract</button>
+        <h2 id="results"></h2>
+    </div>
 </body>
+
 </html>

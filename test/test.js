@@ -1,9 +1,11 @@
 let watermarkClassifier;
 let testImage = undefined;
+const extractWatermarkBtn = document.getElementById('extractWatermarkBtn');
+const fileInput = document.getElementById('formFileLg');
+const resultsDiv = document.getElementById('results');
 
 async function setup() {
-    createCanvas(400,400);
-    watermarkClassifier = await ml5.neuralNetwork({
+    watermarkClassifier = ml5.neuralNetwork({
         inputs: [64, 64, 4],
         task: "imageClassification",
     });
@@ -13,15 +15,21 @@ async function setup() {
         weights: '../model/model.weights.bin'
     }
     await watermarkClassifier.load(modelDetails, () => { console.log("Pre-trained model loaded") });
-    testImage = await loadImage("../example_generator/testGenerator/data/test11.png");
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const selectedImageSrc = URL.createObjectURL(file);
+            testImage = loadImage(selectedImageSrc);
+        }
+    });
 }
 
-function mousePressed() {
+extractWatermarkBtn.addEventListener('click', () => {
     watermarkClassifier.classify({ image: testImage },
         (err, results) => {
             if (err)
                 console.log(err)
             else
-                console.log(results);
+                resultsDiv.innerHTML = JSON.stringify(results);
         });
-}
+});

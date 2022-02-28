@@ -28,3 +28,18 @@ function setup() {
       console.log("Finished training");
    });
 }
+
+// loading dataset
+// const dataSet = document.getElementById('dataset');
+
+// for (let i = 0 ; i< 200 ; i++ ) {
+//    dataset.innerHTML += `
+//       <img src="../example_generator/sketch_220224a/data/wadiemendja${i}.png">
+//    `;
+//    dataset.innerHTML += `
+//       <img src="../example_generator/sketch_220224a/data/dahama${i}.png">
+//    `;
+//    dataset.innerHTML += `
+//       <img src="../example_generator/sketch_220224a/data/zeghamris${i}.png">
+//    `;
+// }
