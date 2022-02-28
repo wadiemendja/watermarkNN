@@ -8,3 +8,5 @@ Todo :
 - test the new generated data
 
 done, me :)
+
+git config core.autocrlf true
