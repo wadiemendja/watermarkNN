@@ -6,30 +6,31 @@ const animation = document.querySelector('.animation');
 let selectedImageSrc = undefined;
 const watermarkImageBtn = document.getElementById('watermarkImage');
 const watermarkTextAria = document.getElementById('watermarkText');
-const watermarkedImage = document.getElementById('watermarkedImage');
+const watermarkedImageDiv = document.getElementById('watermarkedImage');
+const donwloadImage = document.getElementById('downloadImage');
+const downloadImageBtn = document.getElementById('downloadImageBtn');
+watermarkImageBtn.style.display = downloadImageBtn.style.display = "none";
 watermarkTextAria.value = "Wadie Mendja";
-watermarkImageBtn.style.display = "none";
 
 // previewing image
 fileInput.addEventListener('change', (event) => {
+  downloadImageBtn.disabled = true;
   const file = event.target.files[0];
   if (file) {
     selectedImageSrc = URL.createObjectURL(file);
     selectedImgDiv.innerHTML = `<img src="${selectedImageSrc}">`;
-    watermarkedImage.innerHTML = "";
-    watermarkImageBtn.style.display = "";
+    watermarkedImageDiv.innerHTML = "";
+    watermarkImageBtn.style.display = downloadImageBtn.style.display = "";
     animation.innerHTML = "";
   }
 });
 
 // watermark image button click event
 watermarkImageBtn.addEventListener('click', async (event) => {
-  /**
-  *@ param {image URL , watermarkedImageDiv, textWatermark} URL
-  */
   const thisBtn = event.target;
   thisBtn.disabled = true;
-  await runWatermarking(selectedImageSrc, watermarkedImage, watermarkTextAria.value);
+  await runWatermarking(selectedImageSrc, watermarkedImageDiv, watermarkTextAria.value);
+  donwloadImage.href = watermarkedImageDiv.querySelector("img").src;
+  downloadImageBtn.disabled = false;
   thisBtn.disabled = false;
-  console.log(watermarkTextAria.value)
 });
