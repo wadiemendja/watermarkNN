@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icon.png">
+    <link rel="stylesheet" href="./main.css">
     <link rel="stylesheet" href="../libraries/boostrap.css">
     <script src="../libraries/p5.js"></script>
     <script src="../libraries/ml5.js"></script>
@@ -14,12 +16,15 @@
 
 <body>
     <div class="container">
+        <div id="modelStatus"></div>
         <div>
             <label for="formFileLg" class="form-label" style="text-align: center;">Image File Input :</label>
             <input class="form-control form-control-lg" id="formFileLg" type="file">
         </div>
-        <button type="button" class="btn btn-secondary" id="extractWatermarkBtn">Extract</button>
+        <div id="selectedImageDiv"></div>
+        <button type="button" class="btn btn-secondary" id="extractWatermarkBtn" disabled>Extract Watermark</button>
         <h2 id="results"></h2>
+        <canvas id="canvas" width="64" height="64"></canvas>
     </div>
 </body>
 

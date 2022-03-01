@@ -1,0 +1,26 @@
+#modelStatus {
+    text-align: center;
+    color: green;
+}
+
+.container {
+    padding: 20px 10px 0px 10px;
+    text-align: center;
+}
+
+#extractWatermarkBtn {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 50%;
+}
+
+#selectedImageDiv {
+    padding: 10px;
+}
+
+#selectedImageDiv img {
+    border: 2px lightgray solid;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 600px;
+}

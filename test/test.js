@@ -1,8 +1,11 @@
 let watermarkClassifier;
-let testImage = undefined;
 const extractWatermarkBtn = document.getElementById('extractWatermarkBtn');
 const fileInput = document.getElementById('formFileLg');
 const resultsDiv = document.getElementById('results');
+const modelStatus = document.getElementById('modelStatus');
+const selectedImageDiv = document.getElementById('selectedImageDiv');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
 
 async function setup() {
     watermarkClassifier = ml5.neuralNetwork({
@@ -14,22 +17,54 @@ async function setup() {
         metadata: '../model/model_meta.json',
         weights: '../model/model.weights.bin'
     }
-    await watermarkClassifier.load(modelDetails, () => { console.log("Pre-trained model loaded") });
+    await watermarkClassifier.load(modelDetails, () => { modelStatus.innerHTML = "Pre-trained model loaded" });
     fileInput.addEventListener('change', (event) => {
+        resultsDiv.innerHTML = "";
         const file = event.target.files[0];
         if (file) {
             const selectedImageSrc = URL.createObjectURL(file);
-            testImage = loadImage(selectedImageSrc);
+            selectedImageDiv.innerHTML = `<img src=${selectedImageSrc} id="imageToCrop">`;
+            const imageToCrop = document.getElementById('imageToCrop');
+            imageToCrop.src = selectedImageSrc;
+            imageToCrop.onload = () => { cropImage(imageToCrop); }
+            extractWatermarkBtn.disabled = false;
         }
     });
 }
-
-extractWatermarkBtn.addEventListener('click', () => {
-    watermarkClassifier.classify({ image: testImage },
-        (err, results) => {
+// crop image
+function cropImage(image) {
+    ctx.drawImage(image, 0, 0, 64, 64, 0, 0, 64, 64);
+    // blackWhiteFilter();
+}
+// display results
+extractWatermarkBtn.addEventListener('click', async () => {
+    extractWatermarkBtn.disabled = true;
+    const canvasImageURL = canvas.toDataURL();
+    const testImage = new Image();
+    testImage.src = canvasImageURL;
+    testImage.onload = () => {
+        watermarkClassifier.classify({ image: testImage }, (err, results) => {
             if (err)
                 console.log(err)
-            else
-                resultsDiv.innerHTML = JSON.stringify(results);
+            else {
+                resultsDiv.innerHTML = `Results:<br>label: ${results[0].label}<br>confidence: ${results[0].confidence}`;
+                console.log(results);
+                extractWatermarkBtn.disabled = false;
+            }
         });
+    }
 });
+// filtering image 
+function blackWhiteFilter() {
+    var imgPixels = ctx.getImageData(0, 0, 64, 64);
+    for (var y = 0; y < imgPixels.height; y++) {
+        for (var x = 0; x < imgPixels.width; x++) {
+            var i = (y * 4) * imgPixels.width + x * 4;
+            var avg = (imgPixels.data[i] + imgPixels.data[i + 1] + imgPixels.data[i + 2]) / 3;
+            imgPixels.data[i] = avg;
+            imgPixels.data[i + 1] = avg;
+            imgPixels.data[i + 2] = avg;
+        }
+    }
+    ctx.putImageData(imgPixels, 0, 0, 0, 0, imgPixels.width, imgPixels.height);
+}
