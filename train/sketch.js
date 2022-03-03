@@ -24,7 +24,7 @@ function setup() {
    }
    watermarkClassifier.normalizeData();
    watermarkClassifier.train({ epochs: 50 }, () => {
-      // watermarkClassifier.save();
+      watermarkClassifier.save();
       console.log("Finished training");
    });
 }
