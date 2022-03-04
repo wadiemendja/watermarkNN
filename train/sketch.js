@@ -2,20 +2,18 @@ let wadieExample = [];
 let dahamExamples = [];
 let zeghamriExamples = [];
 let watermarkClassifier;
-const sleep = ms => {
-   return new Promise(resolve => setTimeout(resolve, ms))
-}
 
-async function preload() {
+function preload() {
    for (let i = 0; i < 10; i++) {
-      wadieExample[i] = await loadImage(`../example_generator/sketch_220224a/data/wadiemendja${i}.png`);
-      dahamExamples[i] = await loadImage(`../example_generator/sketch_220224a/data/dahama${i}.png`);
-      zeghamriExamples[i] = await loadImage(`../example_generator/sketch_220224a/data/zeghamris${i}.png`);
-      // sleep(100);
+      wadieExample[i] = loadImage(`../example_generator/sketch_220224a/data/wadiemendja${i}.png`);
+      dahamExamples[i] = loadImage(`../example_generator/sketch_220224a/data/dahama${i}.png`);
+      zeghamriExamples[i] = loadImage(`../example_generator/sketch_220224a/data/zeghamris${i}.png`);
    }
 }
 
-function setup() {
+function setup() {}
+
+function startTraining() {
    watermarkClassifier = ml5.neuralNetwork({
       inputs: [64, 64, 4],
       task: "imageClassification",
@@ -28,11 +26,12 @@ function setup() {
    }
    watermarkClassifier.normalizeData();
    watermarkClassifier.train({ epochs: 50 }, () => {
-      watermarkClassifier.save();
+      // watermarkClassifier.save();
       console.log("Finished training");
    });
 }
 
+document.getElementById('train').addEventListener('click', startTraining);
 // loading dataset
 // const dataSet = document.getElementById('dataset');
 
