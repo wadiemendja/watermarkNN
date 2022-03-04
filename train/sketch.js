@@ -2,12 +2,16 @@ let wadieExample = [];
 let dahamExamples = [];
 let zeghamriExamples = [];
 let watermarkClassifier;
+const sleep = ms => {
+   return new Promise(resolve => setTimeout(resolve, ms))
+}
 
-function preload() {
-   for (let i = 0; i < 100; i++) {
-      wadieExample[i] = loadImage(`../example_generator/sketch_220224a/data/wadiemendja${i}.png`);
-      dahamExamples[i] = loadImage(`../example_generator/sketch_220224a/data/dahama${i}.png`);
-      zeghamriExamples[i] = loadImage(`../example_generator/sketch_220224a/data/zeghamris${i}.png`);
+async function preload() {
+   for (let i = 0; i < 10; i++) {
+      wadieExample[i] = await loadImage(`../example_generator/sketch_220224a/data/wadiemendja${i}.png`);
+      dahamExamples[i] = await loadImage(`../example_generator/sketch_220224a/data/dahama${i}.png`);
+      zeghamriExamples[i] = await loadImage(`../example_generator/sketch_220224a/data/zeghamris${i}.png`);
+      // sleep(100);
    }
 }
 

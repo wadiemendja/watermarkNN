@@ -1,6 +1,7 @@
 # watermarkNN
  
 Todo : 
+- add boostrap js
 - crop the watermark spot /test section
 - to make global : image size 64 
 - generate new dataset with different text sizes 
