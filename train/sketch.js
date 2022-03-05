@@ -17,7 +17,7 @@ function mousePressed() {
    console.log("Training started !");
    watermarkClassifier = ml5.neuralNetwork({
       inputs: [64, 64, 4],
-      task: "Classification",
+      task: "imageClassification",
       debug: true
    });
    for (let i = 0; i < wadieExamples.length; i++) {
