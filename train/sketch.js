@@ -27,7 +27,7 @@ async function mousePressed() {
    }
    await watermarkClassifier.normalizeData();
    watermarkClassifier.train({ epochs: 150 }, () => {
-      watermarkClassifier.save();
+      // watermarkClassifier.save();
       console.log("Finished training");
    });
 }
