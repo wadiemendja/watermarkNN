@@ -26,8 +26,8 @@ async function mousePressed() {
       watermarkClassifier.addData({ image: zeghamriExamples[i] }, { label: "Zeghamri Salah" });
    }
    await watermarkClassifier.normalizeData();
-   watermarkClassifier.train({ epochs: 50 }, () => {
-      // watermarkClassifier.save();
+   watermarkClassifier.train({ epochs: 150 }, () => {
+      watermarkClassifier.save();
       console.log("Finished training");
    });
 }
