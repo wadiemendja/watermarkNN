@@ -48,19 +48,6 @@ header {
     color: white;
 }
 
-.container-fluid * {
-    margin: 0 auto;
-    text-align: center;
-}
-
-nav .navbar-toggler {
-    margin-left: 10px;
-}
-
-.navbar-nav .nav-link {
-    margin: 0 30px !important;
-}
-
 footer {
     background-color: rgb(238, 239, 240);
     padding: 20px 5px;

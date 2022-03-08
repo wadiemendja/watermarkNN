@@ -6,17 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/icon.png">
-    <!-- <script src="../libraries/ml5.js"></script>
-    <script src="../libraries/p5.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+    <link rel="stylesheet" href="../libraries/boostrap.css">
+    <script src="../libraries/boostrap.bundle.js"></script>
+    <script src="../libraries/ml5.js"></script>
+    <script src="../libraries/p5.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script> -->
+    <script src="../scripts/renderNav.js" defer></script>
     <script src="./sketch.js" defer></script>
     <title>Train</title>
 </head>
 
 <body>
-    <div id="dataset"></div>
-    <button id="train">Train Model</button>
+    <div class="container">
+        <button id="trainBtn" class="btn btn-secondary">Train Model</button>
+    </div>
+    <style>
+        .container {
+            text-align: center;
+            padding: 20px 10px 0px 10px;
+        }
+    </style>
 </body>
 
 </html>

@@ -1,10 +1,11 @@
 # watermarkNN
  
 Todo : 
-- add boostrap js
+- Select watermark instead of writing it
+- add a "No watermark detected" class beside watermarks
 - crop the watermark spot /test section
 - to make global : image size 64 
-- generate new dataset with different text sizes 
+- generate new dataset with different text sizes and backgrounds
 - test the new generated data
 
 done, me :)
