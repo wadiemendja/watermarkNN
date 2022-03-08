@@ -13,14 +13,14 @@ void draw () {
   float b = random(0, 255);
   background(0); // frame background
   // rotate(random(-0.5, 0.5));
-  textSize(8); // text size px
+  textSize(10); // text size px
   text("Daham A", 2, 10); // Text position (x,y) random(10,50)
-  fill(255, 165, 0, random(20, 80)); // text color RGBA 25.5 = 0.1 alpha
-  saveFrame("data/dahama"+ counter + ".png");
+  fill(255, 165, 0, random(100, 255)); // text color RGBA 25.5 = 0.1 alpha
+  /*saveFrame("data/dahama"+ counter + ".png");
   counter++;
   if (counter < 100) {
     draw();  
   } else {
     exit();
-  }
+  }*/
 }

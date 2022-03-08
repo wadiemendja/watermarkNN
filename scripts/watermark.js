@@ -24,7 +24,7 @@ async function imgToCanvas(url) {
  */
 function addWatermark(canvas, text) {
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "rgba(255, 165, 0, 10%)";
+    ctx.fillStyle = "rgba(255, 165, 0, 1)";
     ctx.font = "8px Georgia";
     ctx.textBaseline = "middle";
     const a = 2;
