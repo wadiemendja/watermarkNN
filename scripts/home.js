@@ -5,12 +5,11 @@ const selectedImgDiv = document.getElementById('selectedImage');
 const animation = document.querySelector('.animation');
 let selectedImageSrc = undefined;
 const watermarkImageBtn = document.getElementById('watermarkImage');
-const watermarkTextAria = document.getElementById('watermarkText');
+const watermarkSelector = document.getElementById('watermarkSelector');
 const watermarkedImageDiv = document.getElementById('watermarkedImage');
 const donwloadImage = document.getElementById('downloadImage');
 const downloadImageBtn = document.getElementById('downloadImageBtn');
 watermarkImageBtn.style.display = downloadImageBtn.style.display = "none";
-watermarkTextAria.value = "Wadie Mendja";
 
 // previewing image
 fileInput.addEventListener('change', (event) => {
@@ -29,7 +28,7 @@ fileInput.addEventListener('change', (event) => {
 watermarkImageBtn.addEventListener('click', async (event) => {
   const thisBtn = event.target;
   thisBtn.disabled = true;
-  await runWatermarking(selectedImageSrc, watermarkedImageDiv, watermarkTextAria.value);
+  await runWatermarking(selectedImageSrc, watermarkedImageDiv, watermarkSelector.value);
   donwloadImage.href = watermarkedImageDiv.querySelector("img").src;
   downloadImageBtn.disabled = false;
   thisBtn.disabled = false;
