@@ -5,7 +5,7 @@ let watermarkClassifier;
 const trainBtn = document.getElementById('trainBtn');
 
 function preload() {
-   for (let i = 0; i < 10; i++) {
+   for (let i = 0; i < 100; i++) {
       wadieExamples[i] = loadImage(`../example_generator/sketch_220224a/data/wadiemendja${i}.png`);
       dahamExamples[i] = loadImage(`../example_generator/sketch_220224a/data/dahama${i}.png`);
       zeghamriExamples[i] = loadImage(`../example_generator/sketch_220224a/data/zeghamris${i}.png`);
@@ -32,8 +32,8 @@ function train() {
       watermarkClassifier.addData({ image: zeghamriExamples[i] }, { label: "Zeghamri Salah" });
    }
    watermarkClassifier.normalizeData();
-   watermarkClassifier.train({ epochs: 10 }, () => {
-      // watermarkClassifier.save();
+   watermarkClassifier.train({ epochs: 500 }, () => {
+      watermarkClassifier.save();
       console.log("Finished training");
    });
    trainBtn.disabled = false;
