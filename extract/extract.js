@@ -6,6 +6,7 @@ const modelStatus = document.getElementById('modelStatus');
 const selectedImageDiv = document.getElementById('selectedImageDiv');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+const testImage = new Image();
 
 async function setup() {
     watermarkClassifier = ml5.neuralNetwork({
@@ -39,21 +40,28 @@ function cropImage(image) {
 // display results
 extractWatermarkBtn.addEventListener('click', async () => {
     extractWatermarkBtn.disabled = true;
+    setTimeout(extractWatermark, 100);
+});
+// extracting process
+function extractWatermark() {
     const canvasImageURL = canvas.toDataURL();
-    const testImage = new Image();
     testImage.src = canvasImageURL;
     testImage.onload = () => {
         watermarkClassifier.classify({ image: testImage }, (err, results) => {
             if (err)
                 console.log(err)
             else {
-                resultsDiv.innerHTML = `Results:<br>label: ${results[0].label}<br>confidence: ${results[0].confidence}`;
+                const label = results[0].label;
+                const confidence = results[0].confidence;
+                if (confidence >= 0.85) 
+                resultsDiv.innerHTML = `Results:<br>label: ${label}<br>confidence: ${confidence}`;
+                else resultsDiv.innerHTML = "No watermark detected !"
                 console.log(results);
                 extractWatermarkBtn.disabled = false;
             }
         });
     }
-});
+}
 // filtering image 
 function blackWhiteFilter() {
     var imgPixels = ctx.getImageData(0, 0, 64, 64);
