@@ -6,6 +6,7 @@ void setup () {
   size(64, 64); // window size
   myFont = createFont("Georgia", 5);
   textFont(myFont);
+  textSize(8);
 }
 
 void draw () {
@@ -31,3 +32,11 @@ void draw () {
     exit();
   }
 }
+
+/* Just for single image changes
+  background(0);
+  textSize(8);
+  text("Wadie Mendja", 2, 10); // Text position (x,y) random(10,50)
+  fill(255, 165, 0, 25.5); // text color RGBA 25.5 = 0.1 alpha
+  saveFrame("data/wadiemendja0.png");
+*/
