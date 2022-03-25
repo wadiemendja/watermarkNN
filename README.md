@@ -8,4 +8,4 @@ Todo :
 
 done, me :)
 
-git config core.autocrlf true
+git config --global core.autocrlf true
