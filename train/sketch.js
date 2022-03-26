@@ -32,7 +32,7 @@ function train() {
       watermarkClassifier.addData({ image: zeghamriExamples[i] }, { label: "Zeghamri Salah" });
    }
    watermarkClassifier.normalizeData();
-   watermarkClassifier.train({ epochs: 2000 }, () => {
+   watermarkClassifier.train({ epochs: 500 }, () => {
       watermarkClassifier.save();
       console.log("Finished training");
    });
