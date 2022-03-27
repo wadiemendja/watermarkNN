@@ -13,14 +13,14 @@ void draw () {
   float g = randomizeColor();
   float b = randomizeColor();
   background(0); // frame background
-  textSize(10); // text size px
-  text("Daham A", 2, 10); // Text position (x,y) random(10,50)
-  fill(255, 165, 0, 25.5); // text color RGBA
-  saveFrame("testingData/dahama.png");
-  if (counter < 2){
+  textSize(8); // text size px
+  text("Zeghamri Salah", 2, 10); // Text position (x,y) random(10,50)
+  fill(255, 165, 0, 255); // text color RGBA
+  saveFrame("testingData/zeghamris.png");
+  /*if (counter < 2){
     counter ++;
     draw();
   } else {
     exit();
-  }
+  }*/
 }
