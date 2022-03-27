@@ -8,14 +8,12 @@ void setup () {
   textFont(myFont);
   textSize(8);
 }
-
 void draw () {
   float r = random(0, 255);
   float g = random(0, 255);
   float b = random(0, 255);
   if(counter == 0) background(0);
   else background(r,g,b);
-  // rotate(random(-0.5, 0.5));
   textSize(8); // text size px
   float alpha = 25.5; // random(25.5);
   for(int i=0; i<watermarks.length; i++) {
@@ -26,11 +24,7 @@ void draw () {
     else background(r,g,b); // clearing frame
   }
   counter++;
-  if (counter < 100) {
-    draw();  
-  } else {
-    exit();
-  }
+  if (counter < 100) draw();else exit();
 }
 
 /* Just for single image changes
