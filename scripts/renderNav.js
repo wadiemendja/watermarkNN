@@ -18,6 +18,9 @@ const nav = `
           <li class="nav-item">
             <a class="nav-link" href="/train">Train Model</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/how-it-works.pdf" target="_blank">How it works</a>
+          </li>
         </ul>
       </div>
     </div>
