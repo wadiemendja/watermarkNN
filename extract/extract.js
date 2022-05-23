@@ -53,7 +53,7 @@ function extractWatermark() {
             else {
                 const label = results[0].label;
                 const confidence = results[0].confidence;
-                if (confidence >= 0.60) 
+                if (confidence >= 0.50) 
                 resultsDiv.innerHTML = `Results:<br>label: ${label}<br>confidence: ${confidence}`;
                 else resultsDiv.innerHTML = "No watermark detected !"
                 console.log(results);

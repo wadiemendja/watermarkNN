@@ -10,12 +10,14 @@ const watermarkedImageDiv = document.getElementById('watermarkedImage');
 const donwloadImage = document.getElementById('downloadImage');
 const downloadImageBtn = document.getElementById('downloadImageBtn');
 watermarkImageBtn.style.display = downloadImageBtn.style.display = "none";
-
+let imgType = undefined;
 // previewing image
 fileInput.addEventListener('change', (event) => {
   downloadImageBtn.disabled = true;
   const file = event.target.files[0];
   if (file) {
+    imgType = file.type;
+    console.log(imgType)
     selectedImageSrc = URL.createObjectURL(file);
     selectedImgDiv.innerHTML = `<img src="${selectedImageSrc}">`;
     watermarkedImageDiv.innerHTML = "";
@@ -28,7 +30,7 @@ fileInput.addEventListener('change', (event) => {
 watermarkImageBtn.addEventListener('click', async (event) => {
   const thisBtn = event.target;
   thisBtn.disabled = true;
-  await runWatermarking(selectedImageSrc, watermarkedImageDiv, watermarkSelector.value);
+  await runWatermarking(selectedImageSrc, watermarkedImageDiv, watermarkSelector.value, imgType);
   donwloadImage.href = watermarkedImageDiv.querySelector("img").src;
   downloadImageBtn.disabled = false;
   thisBtn.disabled = false;

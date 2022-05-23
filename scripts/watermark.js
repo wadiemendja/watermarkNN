@@ -40,23 +40,23 @@ function addWatermark(canvas, text) {
  *Convert canvas to img
  *@ param {canvas object} canvas
  */
-function convasToImg(canvas) {
+function convasToImg(canvas, imgType) {
     //Create a new image object, which can be understood as dom
     var image = new Image();
     // canvas.toDataURL  It returns a string of Base64 encoded URLs
     //Specified format png
-    image.src = canvas.toDataURL("image/png");
+    image.src = canvas.toDataURL(imgType);
     return image;
 }
 
 //Running examples
-async function runWatermarking(imgUrl, watermarkedImageDiv, text) {
+async function runWatermarking(imgUrl, watermarkedImageDiv, text, imgType) {
     //1. Convert the image path to canvas
     const tempCanvas = await imgToCanvas(imgUrl);
     //2. Add watermark to canvas
     const canvas = addWatermark(tempCanvas, text);
     //3. Convert canvas to img
-    const img = convasToImg(canvas);
+    const img = convasToImg(canvas, imgType);
     //View effects
     watermarkedImageDiv.appendChild(img);
 }
