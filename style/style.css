@@ -52,6 +52,11 @@ header {
     color: white;
 }
 
+#markImage { 
+    margin-left: 5px;
+    border: solid 2px gray;
+}
+
 footer {
     background-color: rgb(238, 239, 240);
     padding: 20px 5px;

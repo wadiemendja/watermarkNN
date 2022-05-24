@@ -35,3 +35,10 @@ watermarkImageBtn.addEventListener('click', async (event) => {
   downloadImageBtn.disabled = false;
   thisBtn.disabled = false;
 });
+
+// show selected watermark
+watermarkSelector.addEventListener('change', (event) => {
+  const markString = event.target.value;
+  const markImage = document.getElementById('markImage');
+  markImage.src = "../img/original_watermarks/" + markString + ".png";
+});

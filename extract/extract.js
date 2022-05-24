@@ -1,4 +1,5 @@
 let watermarkClassifier;
+let areaString = document.getElementById("areaString");
 const extractWatermarkBtn = document.getElementById('extractWatermarkBtn');
 const fileInput = document.getElementById('formFileLg');
 const resultsDiv = document.getElementById('results');
@@ -20,6 +21,7 @@ async function setup() {
     }
     await watermarkClassifier.load(modelDetails, () => { modelStatus.innerHTML = "Pre-trained model loaded" });
     fileInput.addEventListener('change', (event) => {
+        areaString.innerText = "Watermark Area :";
         resultsDiv.innerHTML = "";
         const file = event.target.files[0];
         if (file) {
@@ -54,7 +56,12 @@ function extractWatermark() {
                 const label = results[0].label;
                 const confidence = results[0].confidence;
                 if (confidence >= 0.50) 
-                resultsDiv.innerHTML = `Results:<br>label: ${label}<br>confidence: ${confidence}`;
+                resultsDiv.innerHTML = `
+                    Results:<br>
+                    Extracted watermark: <img src="../img/original_watermarks/${label}.png"><br>
+                    label: ${label}<br>
+                    confidence: ${confidence}
+                `;
                 else resultsDiv.innerHTML = "No watermark detected !"
                 console.log(results);
                 extractWatermarkBtn.disabled = false;
