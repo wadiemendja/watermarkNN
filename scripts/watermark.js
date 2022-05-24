@@ -22,9 +22,9 @@ async function imgToCanvas(url) {
  *@ param {canvas object} canvas
  *@ param {watermark text} text
  */
-function addWatermark(canvas, text) {
+function addWatermark(canvas, text, opacity) {
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "rgba(255, 165, 0, 0.1)";
+    ctx.fillStyle = `rgba(255, 165, 0, ${opacity})`;
     ctx.font = "8px Georgia";
     ctx.textBaseline = "middle";
     const a = 2;
@@ -40,23 +40,23 @@ function addWatermark(canvas, text) {
  *Convert canvas to img
  *@ param {canvas object} canvas
  */
-function convasToImg(canvas, imgType) {
+function convasToImg(canvas) {
     //Create a new image object, which can be understood as dom
     var image = new Image();
     // canvas.toDataURL  It returns a string of Base64 encoded URLs
     //Specified format png
-    image.src = canvas.toDataURL(imgType);
+    image.src = canvas.toDataURL("image/png");
     return image;
 }
 
 //Running examples
-async function runWatermarking(imgUrl, watermarkedImageDiv, text, imgType) {
+async function runWatermarking(imgUrl, watermarkedImageDiv, text, opacity) {
     //1. Convert the image path to canvas
     const tempCanvas = await imgToCanvas(imgUrl);
     //2. Add watermark to canvas
-    const canvas = addWatermark(tempCanvas, text);
+    const canvas = addWatermark(tempCanvas, text, opacity);
     //3. Convert canvas to img
-    const img = convasToImg(canvas, imgType);
+    const img = convasToImg(canvas);
     //View effects
     watermarkedImageDiv.appendChild(img);
 }

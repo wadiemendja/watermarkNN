@@ -6,6 +6,7 @@ const animation = document.querySelector('.animation');
 let selectedImageSrc = undefined;
 const watermarkImageBtn = document.getElementById('watermarkImage');
 const watermarkSelector = document.getElementById('watermarkSelector');
+const opacity = document.getElementById('opacity');
 const watermarkedImageDiv = document.getElementById('watermarkedImage');
 const donwloadImage = document.getElementById('downloadImage');
 const downloadImageBtn = document.getElementById('downloadImageBtn');
@@ -29,16 +30,19 @@ fileInput.addEventListener('change', (event) => {
 // watermark image button click event
 watermarkImageBtn.addEventListener('click', async (event) => {
   const thisBtn = event.target;
+  watermarkedImageDiv.innerHTML = "";
   thisBtn.disabled = true;
-  await runWatermarking(selectedImageSrc, watermarkedImageDiv, watermarkSelector.value, imgType);
+  await runWatermarking(selectedImageSrc, watermarkedImageDiv, watermarkSelector.value, opacity.value);
   donwloadImage.href = watermarkedImageDiv.querySelector("img").src;
   downloadImageBtn.disabled = false;
   thisBtn.disabled = false;
 });
 
+const originalMarksPath = "../img/original_watermarks/";
+const markImage = document.getElementById('markImage');
+// show default selected watermark
+markImage.src =  originalMarksPath + watermarkSelector.value + ".png";
 // show selected watermark
 watermarkSelector.addEventListener('change', (event) => {
-  const markString = event.target.value;
-  const markImage = document.getElementById('markImage');
-  markImage.src = "../img/original_watermarks/" + markString + ".png";
+  markImage.src = originalMarksPath + watermarkSelector.value + ".png";
 });
