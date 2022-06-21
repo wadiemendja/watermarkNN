@@ -4,4 +4,6 @@ so lets get started.
 2- This is our workplan: we're going to start with an introduction and the problematic of this thesis, after that we're going to get familliar with some terminalogy like what is a watermark and why it's needed, next we're going to take a look at some watermarking techniques, and after that gonna go throuhg an overall watermarking process, next digital watermarking an DNN and the relationship between them, requirement for DNN watermarking, and last but not least the development process wich includes embadding, training and extraxtion models.
 
 3- read the first line.
-Digital watermarking basically is a technique of embedding pieces of information into digital data such as text, audio, video, and still images that can be detected or extracted later to show authentication about the data
+Digital watermarking basically is a technique of embedding pieces of information into digital data such as text, audio, video, and still images that can be detected or extracted later to show authentication about the data.
+
+4- Watermark is a hidden information in an image
