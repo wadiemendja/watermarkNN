@@ -1,9 +1,15 @@
 1- Hello everyone, I hope you all doing great, my name is Wadie and this is my pair Salah and today we're going to be presenting our thesis titled "Image watermarking based on deep neural networks",
-so lets get started.
+but before we start I wanna take a min to thank you all for commming in this occasion, also I wanna thank our supperviser Daham for all the work that he put in to help us finish this work. So without ferther ado lets get started. 
 
-2- This is our workplan: we're going to start with an introduction and the problematic of this thesis, after that we're going to get familliar with some terminalogy like what is a watermark and why it's needed, next we're going to take a look at some watermarking techniques, and after that gonna go throuhg an overall watermarking process, next digital watermarking an DNN and the relationship between them, requirement for DNN watermarking, and last but not least the development process wich includes embadding, training and extraxtion models.
+2- This is our workplan: we're going to start with an introduction and the problematic of this thesis, after that we're going to get familliar with some terminalogy like what is a watermark and why it's needed, next we're going to take a look at some watermarking techniques, and after that we're gonna go throuhg an overall watermarking process, next digital watermarking an DNN and the relationship between them, requirement for DNN watermarking, and last but not least the development process wich includes embadding, training and extraxtion models and a conclusion.
 
 3- read the first line.
-Digital watermarking basically is a technique of embedding pieces of information into digital data such as text, audio, video, and still images that can be detected or extracted later to show authentication about the data.
+Digital watermarking basically is a technique of embedding pieces of information into digital data such as text, audio, video, and still images wich are in the context of this note, and that information (wich is the watermark) can be detected or extracted later to show authentication about the data.
 
 4- Watermark is a hidden information in an image
+
+- Training performance: at 500 epochs we are geting this lose of messure of the error durring the training process, it shows how close is the model matching the training data.
+
+PSNR: is a quality measurement between the original and a compressed or reconstructed image.
+	
+Epoch: An epoch in machine learning simply means one complete pass of the training dataset.
